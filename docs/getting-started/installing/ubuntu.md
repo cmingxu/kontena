@@ -10,8 +10,20 @@ title: Ubuntu
 
 ## Prerequisities
 
-- Kontena Account
-- Ubuntu 14.04 with Docker Engine 1.11.x installed
+- [Kontena Account](https://cloud.kontena.io/sign-up)
+
+## Installing Docker Engine
+
+Kontena requires [Docker Engine](https://docs.docker.com/engine/) to be installed on every host (master and nodes). Preferred method for installing Docker Engine is to use Docker's APT repositories:
+
+```
+$ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+$ echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee -a /etc/apt/sources.list.d/docker.list
+$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual
+$ sudo apt-get install docker-engine=1.11.2-0~trusty
+$ sudo apt-mark hold docker-engine
+```
 
 ## Installing Kontena Master
 
